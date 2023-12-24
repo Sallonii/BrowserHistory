@@ -20,6 +20,8 @@ const BrowserItem = props => {
               <p className="domain-url"> {domainUrl} </p>
             </div>
           </div>
+
+          {/* Button for large devices */}
           <button
             type="button"
             className="delete-btn1"
@@ -33,6 +35,7 @@ const BrowserItem = props => {
           </button>
         </div>
       </div>
+      {/* Button for small devices */}
       <button
         type="button"
         className="delete-btn2"

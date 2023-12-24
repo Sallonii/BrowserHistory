@@ -85,12 +85,14 @@ class App extends Component {
     searchHistoryList: initialHistoryList,
   }
 
+  // To get Update List
   onSearching = event => {
     this.setState({
       searchInput: event.target.value,
     })
   }
 
+  // This function updates the list based on the id
   deleteHistory = id => {
     const {searchHistoryList} = this.state
 
@@ -103,6 +105,7 @@ class App extends Component {
   render() {
     const {searchInput, searchHistoryList} = this.state
 
+    // Filtering the date based on search input
     const searchResults = searchHistoryList.filter(eachItem =>
       eachItem.title.toLowerCase().includes(searchInput.toLowerCase()),
     )
@@ -110,6 +113,7 @@ class App extends Component {
     const isSearchListEmpty = searchResults.length === 0
 
     return (
+      // navbar container
       <div className="bg">
         <div className="navbar">
           <img
@@ -129,6 +133,8 @@ class App extends Component {
             />
           </div>
         </div>
+
+        {/* List Items Container */}
         <div className="main-content">
           <ul className="card-container">
             {searchResults.map(eachItem => (
@@ -141,7 +147,7 @@ class App extends Component {
           </ul>
         </div>
         {isSearchListEmpty && (
-          <p className="empty-history">There is no history to show</p>
+          <p className="empty-history">There is no history to show</p> // Displays text only when list is empty
         )}
       </div>
     )
